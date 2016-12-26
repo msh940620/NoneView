@@ -135,7 +135,7 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
   s.dependency "CTMediator"
-  s.dependency "Tools"
+  s.dependency "Tools", :git => "https://github.com/msh940620/Tools.git"
 s.prefix_header_contents = <<-EOS
 #define ScreenW    [[UIScreen mainScreen] bounds].size.width
 #define ScreenH    [[UIScreen mainScreen] bounds].size.height
