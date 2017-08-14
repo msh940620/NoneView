@@ -10,7 +10,7 @@
 
 - (UIView *)Action_nativeNoneView:(NSDictionary *)params{
     NoneView *view = [[NoneView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, [params[@"Height"] doubleValue])];
-    [view setImage:params[@"NoneIMG"] withWidth:[params[@"IMG_WIDTH"] floatValue] img_y:[params[@"IMG_Y"] floatValue]];
+    [view setImage:params[@"NoneIMG"] withSize:CGSizeMake([params[@"IMG_WIDTH"] floatValue], [params[@"IMG_HEIGHT"] floatValue]) img_y:[params[@"IMG_Y"] floatValue]];
     [view setTitle:params[@"NoneTitle"] noneDec:params[@"NoneDesc"] noneBtnTitle:params[@"ButtonTitle"]];
     view.reloadClickBlock = params[@"Block"];
     return view;

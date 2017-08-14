@@ -16,6 +16,7 @@ NSString * const kCTMediatorActionNativeNoneView = @"nativeNoneView";
                            noneBtnTitle:(NSString *)btnTitle
                                   Image:(NSString *)imageName
                               withWidth:(CGFloat)img_width
+                             withHeight:(CGFloat)img_height
                                   img_y:(CGFloat)imag_y
                                  height:(CGFloat)height
                                   block:(void (^)(void))block{
@@ -35,6 +36,9 @@ NSString * const kCTMediatorActionNativeNoneView = @"nativeNoneView";
     }
     if(img_width){
         dic[@"IMG_WIDTH"] = @(img_width);
+    }
+    if(img_height){
+        dic[@"IMG_HEIGHT"] = @(img_height);
     }
     if(imag_y){
         dic[@"IMG_Y"] = @(imag_y);

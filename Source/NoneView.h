@@ -11,7 +11,7 @@
 @interface NoneView : UIView
 
 /** 传入图片名和需要的Y坐标和宽度*/
-- (void)setImage:(NSString *)imageName withWidth:(CGFloat)img_width img_y:(CGFloat)imag_y;
+- (void)setImage:(NSString *)imageName withSize:(CGSize)img_size img_y:(CGFloat)imag_y;
 
 /** 自定义空页面的主标题和副标题、按钮文字*/
 - (void)setTitle:(NSString *)noneTitle noneDec:(NSString *)noneDec noneBtnTitle:(NSString *)btnTitle;

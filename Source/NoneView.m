@@ -27,12 +27,12 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
         self.userInteractionEnabled = YES;
         [self addSubview:self.nonePicture];
         [self addSubview:self.noneTitleL];
         [self addSubview:self.noneDec];
         [self addSubview:self.noneBtn];
-        self.backgroundColor = COLOR_BACKGROUND;
     }
     return self;
 }
@@ -50,7 +50,7 @@
         _noneTitleL = [[UILabel alloc] initWithFrame:CGRectMake(0, _nonePicture.frame.size.height + _nonePicture.frame.origin.y + 5, ScreenW, 20)];
         _noneTitleL.font = FONT(15);
         _noneTitleL.textAlignment = NSTextAlignmentCenter;
-        _noneTitleL.textColor = RGB(64, 64, 64);
+        _noneTitleL.textColor = RGB(128, 128, 128);
     }
     return _noneTitleL;
 }
@@ -69,25 +69,29 @@
 -(UIButton *)noneBtn{
     if (!_noneBtn) {
         _noneBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        _noneBtn.frame = CGRectMake(20, _noneDec.frame.origin.y + _noneDec.frame.size.height + 20, ScreenW - 40, 44);
-        _noneBtn.layer.borderWidth = 1.0f;
-        _noneBtn.layer.borderColor = [UIColor colorWithRed:188/255.0 green:166/255.0 blue:129/255.0 alpha:1.0].CGColor;
+        _noneBtn.frame = CGRectMake(40, _noneDec.frame.origin.y + _noneDec.frame.size.height + 20, ScreenW - 80, 44);
+        [_noneBtn setBackgroundColor:[UIColor colorWithRed:44/255.0 green:139/255.0 blue:255/255.0 alpha:1.0]];
         _noneBtn.layer.cornerRadius = 22;
         _noneBtn.layer.masksToBounds = YES;
         _noneBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-        [_noneBtn setTintColor:[UIColor colorWithRed:150/255.0 green:150/255.0 blue:150/255.0 alpha:1.0]];
+        [_noneBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _noneBtn.enabled = YES;
     }
     return _noneBtn;
 }
 
 
-- (void)setImage:(NSString *)imageName withWidth:(CGFloat)img_width img_y:(CGFloat)imag_y{
+- (void)setImage:(NSString *)imageName withSize:(CGSize)img_size img_y:(CGFloat)imag_y{
     _nonePicture.image = [UIImage imageNamed:imageName];
-    _nonePicture.frame = CGRectMake((ScreenW - img_width)/2, imag_y, img_width,img_width);
-    _noneTitleL.frame = CGRectMake(0, _nonePicture.frame.size.height + _nonePicture.frame.origin.y + 10, ScreenW, 20);
+    _nonePicture.frame = CGRectMake((ScreenW - img_size.width)/2, imag_y, img_size.width,img_size.height);
+    _noneTitleL.frame = CGRectMake(0, _nonePicture.frame.size.height + _nonePicture.frame.origin.y + 20, ScreenW, 20);
     _noneDec.frame = CGRectMake(0, _noneTitleL.frame.size.height + _noneTitleL.frame.origin.y +5, ScreenW, 20);
-    _noneBtn.frame = CGRectMake(20, _noneDec.frame.origin.y + _noneDec.frame.size.height + 20, ScreenW - 40, 44);
+    if([imageName isEqualToString:@"ic_network_emptydata"]){
+        _noneBtn.frame = CGRectMake(40, self.frame.size.height - 40 - 44, ScreenW - 80, 44);
+    }else{
+        _noneBtn.frame = CGRectMake(40, _noneDec.frame.origin.y + _noneDec.frame.size.height + 20, ScreenW - 80, 44);
+    }
+
 }
 
 -(void)setTitle:(NSString *)noneTitle noneDec:(NSString *)noneDec noneBtnTitle:(NSString *)btnTitle{

@@ -70,17 +70,20 @@
         self.btnButtonTitle = @"";
     }
     if(!self.imgWidth){
-        self.imgWidth = @(80);
+        self.imgWidth = @(114);
     }
     if(!self.imgY){
-        self.imgY = @(120);
+        self.imgY = @(150);
     }
-    
-    NoneView *placeholderView = [[CTMediator sharedInstance] CTMediator_noneViewWithTitle:[self noneTitle]
+    if(!self.imgHeight){
+        self.imgHeight = @(90);
+    }
+    UIView *placeholderView = [[CTMediator sharedInstance] CTMediator_noneViewWithTitle:[self noneTitle]
                                                                                   noneDec:[self noneDesc]
                                                                              noneBtnTitle:[self btnButtonTitle]
                                                                                     Image:[self imgName]
                                                                                 withWidth:[[self imgWidth] floatValue]
+                                                                               withHeight:[[self imgHeight] floatValue]
                                                                                     img_y:[[self imgY] floatValue]
                                                                                    height:self.frame.size.height
                                                                                     block:^{
@@ -98,11 +101,11 @@
     }
 }
 
-- (NoneView *)placeholderView {
+- (UIView *)placeholderView {
     return objc_getAssociatedObject(self, @selector(placeholderView));
 }
 
-- (void)setPlaceholderView:(NoneView *)placeholderView {
+- (void)setPlaceholderView:(UIView *)placeholderView {
     objc_setAssociatedObject(self, @selector(placeholderView), placeholderView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -160,8 +163,16 @@
     return objc_getAssociatedObject(self, @selector(imgWidth));
 }
 
+- (NSNumber *)imgHeight{
+    return objc_getAssociatedObject(self, @selector(imgHeight));
+}
+
 - (void)setImgWidth:(NSNumber *)imgWidth{
     objc_setAssociatedObject(self, @selector(imgWidth), imgWidth, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setImgHeight:(NSNumber *)imgHeight{
+    objc_setAssociatedObject(self, @selector(imgHeight), imgHeight, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(NSNumber *)imgY{

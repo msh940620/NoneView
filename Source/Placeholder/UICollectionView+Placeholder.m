@@ -60,6 +60,7 @@
                                                                            noneBtnTitle:[self btnButton]
                                                                                   Image:[self imgName]
                                                                               withWidth:[self imgWidth]
+                                                                             withHeight:[self imgHeight]
                                                                                   img_y:[self imgY]
                                                                                  height:self.frame.size.height
                                                                              block:^{
@@ -99,16 +100,20 @@
 
 - (CGFloat)imgWidth{
 
-    return 80;
+    return 114;
 }
 
 - (CGFloat)imgY{
 
-    return 120;
+    return 150;
 
 }
 
+- (CGFloat)imgHeight{
 
+    return 90;
+    
+}
 
 - (UIView *)placeholderView {
     return objc_getAssociatedObject(self, @selector(placeholderView));

@@ -12,6 +12,7 @@
                            noneBtnTitle:(NSString *)btnTitle
                                   Image:(NSString *)imageName
                               withWidth:(CGFloat)img_width
+                             withHeight:(CGFloat)img_height
                                   img_y:(CGFloat)imag_y
                                  height:(CGFloat)height
                                   block:(void (^)(void))block;

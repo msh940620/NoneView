@@ -11,7 +11,7 @@
 
 @interface UITableView (Placeholder)
 
-@property (nonatomic, strong) NoneView *placeholderView;
+@property (nonatomic, strong) UIView *placeholderView;
 
 @property (nonatomic, strong) NSNumber *needPlaceholder;
 
@@ -26,6 +26,8 @@
 @property (nonatomic, copy) void (^block)(void);
 
 @property (nonatomic, strong) NSNumber *imgWidth;
+
+@property (nonatomic, strong) NSNumber *imgHeight;
 
 @property (nonatomic, strong) NSNumber *imgY;
 

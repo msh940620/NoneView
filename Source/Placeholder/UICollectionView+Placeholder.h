@@ -23,6 +23,7 @@
 
 - (CGFloat)imgWidth;
 - (CGFloat)imgY;
+- (CGFloat)imgHeight;
 
 
 @end
